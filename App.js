@@ -1,11 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import MainScreen from './src/screens/MainScreen';
+import LoadingScreen from './src/components/LoadingScreen';
+import AuthScreen from './src/screens/AuthScreen';
+
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './src/utils/store';
 
 const App = () => {
   return (
-    <View>
-      <Text>hihi startPage</Text>
-    </View>
+    <Provider store={store}>
+      <PersistGate
+        // loading={<LoadingScreen />}
+        persistor={persistor}>
+        <AuthScreen />
+      </PersistGate>
+    </Provider>
   );
 };
 
