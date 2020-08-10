@@ -3,6 +3,8 @@ import AuthScreen from './src/screens/AuthScreen';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './src/utils/store';
+import Drawers from './src/navigation/Drawers';
+import MyDrawer from './src/navigation/MyDrawer';
 
 const App = () => {
   return (
@@ -10,7 +12,8 @@ const App = () => {
       <PersistGate
         // loading={<LoadingScreen />}
         persistor={persistor}>
-        <AuthScreen />
+        {/* <AuthScreen /> */}
+        <MyDrawer />
       </PersistGate>
     </Provider>
   );

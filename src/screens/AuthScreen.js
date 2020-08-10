@@ -5,8 +5,9 @@ import { View, StyleSheet, Text } from 'react-native';
 import Buttons from '../components/Buttons';
 import PinInput from '../components/PinInput';
 import { newPin, generatePin } from '../reducers/actions';
+import MyWeb from './MyWeb';
 
-const AuthScreen = ({ global, newPin, generatePin }) => {
+const AuthScreen = ({ global, newPin, generatePin, navigation }) => {
   const [pin, setPin] = React.useState();
   const [validationMessage, setValidationMessage] = React.useState(null);
   React.useEffect(() => {
@@ -30,6 +31,7 @@ const AuthScreen = ({ global, newPin, generatePin }) => {
     generatePin();
     setPin();
   };
+  const openWebView = () => navigation.navigate('MyWeb');
 
   return <View style={styles.container}>
     <Text>{validationMessage}</Text>
@@ -42,6 +44,7 @@ const AuthScreen = ({ global, newPin, generatePin }) => {
       signin={signin}
       generatePin={deleteExistedPin}
       createPin={createPin}
+      openWebView={openWebView}
     />
   </View>
 
